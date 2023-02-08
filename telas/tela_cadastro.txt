@@ -1,0 +1,40 @@
+import Service as service;
+
+class TelaCadastro {
+
+    String nome, d1, d2, d3;
+    double nota1_d1, nota2_d1, nota1_d2, nota2_d2, nota1_d3, nota2_d3;
+
+    function criar_entrada(String label, String value) {
+        return TextInput(
+            label: label
+            value: value
+        );
+    }
+
+    criar_entrada("Nome:", nome);
+    
+    criar_entrada("Disciplina:", d1);
+    criar_entrada("Nota 1:", nota1_d1);
+    criar_entrada("Nota 2:", nota2_d1);
+
+    criar_entrada("Disciplina:", d2);
+    criar_entrada("Nota 1:", nota1_d2);
+    criar_entrada("Nota 2:", nota2_d2);
+
+    criar_entrada("Disciplina:", d3);
+    criar_entrada("Nota 1:", nota1_d3);
+    criar_entrada("Nota 2:", nota2_d3);
+
+    Button(
+        label: "Calcular";
+        onClick: (){
+            service.save(d1, nota1_d1, nota2_d1, nome);
+            service.save(d2, nota1_d2, nota2_d2, nome);
+            service.save(d3, nota1_d3, nota2_d3, nome);
+
+            NavigateTo(TelaListar);
+        };
+    );
+
+}

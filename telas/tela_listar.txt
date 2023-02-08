@@ -1,0 +1,13 @@
+import Service as service;
+
+class TelaListar {
+
+    dados = service.listar();
+
+    for dado in dados {
+        Text("Nome: " + dado.aluno);
+        Text("Disciplina: " + dado.disciplina);
+        Text("Média: " + service.calcular_media(dado.nota1, dado.nota2));
+        Text(service.verificar_aprovacao(dado.nota1, dado.nota2));
+    }
+}

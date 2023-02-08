@@ -1,0 +1,18 @@
+class Bd {
+    db = DB.connect();
+
+    db.execute("CREATE TABLE IF NOT EXISTS disciplinas_alunos(
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                disciplina VARCHAR (255) NOT NULL,
+                nota_1 DOUBLE NOT NULL,
+                nota_2 DOUBLE NOT NULL
+    )");
+
+    function listar(){
+        return db.execute(SELECT * from disciplinas_alunos);
+    }
+
+    function salvar(String d1, double nota1, double nota2, String nome){
+        db.execute("INSERT INTO disciplinas_alunos (disciplina, nota1, nota2, aluno) VALUES(d1, nota1, nota2, nome)");
+    }
+}

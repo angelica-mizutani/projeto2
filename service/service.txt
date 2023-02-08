@@ -1,0 +1,38 @@
+import Bd as bd;
+
+class Service {
+
+    function listar(){
+        return bd.listar();
+    }
+
+    function salvar(String d1, double nota1, double nota2, String nome){
+        if (validar_campo(d1) && validar_campo(nota1) && validar_campo(nota2) && validar_campo(nome)){
+            bd.salvar(d1, nota1, nota2, nome);
+        }
+
+    }
+
+    function validar_campo(String value) {
+        if (value != '' && value != null) {
+            return true;
+        }
+
+        return false;
+    }
+
+    function calcular_media(double nota1, double nota2) {
+        return ((nota1 + nota2) / 2);
+    }
+
+    function verificar_aprovacao(double nota1, double nota2){
+        double media = calcular_media(nota1, nota2);
+
+        if (media >= 6.0) {
+            return "Aprovado!";
+        } else {
+            return "Reprovado";
+        }
+    }
+
+}
